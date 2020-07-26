@@ -10,18 +10,16 @@ def is_vowel(c):
 
 def all_subs(s,ss_set,pred):
 
-    idx = 0
-    for c in s:
-        if pred(c):
+    idx = -1
+
+    for i in range(len(s)):
+        if pred(s[i]):
+            idx = i
             break
-        idx += 1
 
-    f = list(dropwhile(pred, s))
-
-    if not len(f):
+    if idx == -1:
         return -1
 
-    idx = s.find(f[0])
     ss = []
     
     for c in s[idx:]:
@@ -82,8 +80,8 @@ def count_all(s,pred):
 
 def minion_game(string):
 
-    s = count_all(string,is_vowel)
-    k = count_all(string,lambda x: not is_vowel(x))
+    s = count_all(string,lambda x: not is_vowel(x))
+    k = count_all(string,is_vowel)
 
     if s > k: 
         print(f"Stuart {s}")

@@ -8,7 +8,7 @@ def log(x):
 def is_vowel(c):
     return c in "AEIOU"
 
-def all_subs(s,ss_set,pred):
+def first(s,pred):
 
     idx = -1
 
@@ -17,20 +17,21 @@ def all_subs(s,ss_set,pred):
             idx = i
             break
 
+    return idx
+
+def all_subs(s,ss_set,pred):
+
+    idx = first(s,pred)
+
     if idx == -1:
         return -1
 
-    ss = []
+    ss = ''
     
     for c in s[idx:]:
 
-        if len(ss):
-            ss.append(ss[-1] + c)
-
-        else:
-            ss.append(c)
-
-        ss_set.add(ss[-1])
+        ss += c
+        ss_set.add(ss)
 
     return idx
 

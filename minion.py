@@ -2,7 +2,6 @@ from itertools import dropwhile
 from functools import reduce
 
 def log(x):
-    return
     print(x)
 
 def is_vowel(c):
@@ -96,10 +95,6 @@ def minion_game(string):
 
 if __name__ == '__main__':
 
-    s = "Z"*1_000
-    s = "BANANA"
-
     s = input()
-
     minion_game(s)
 
